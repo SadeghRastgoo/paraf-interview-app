@@ -6,7 +6,7 @@ import { SearchIcon } from "lucide-react";
 
 function LayoutSearch() {
   return (
-    <Field dir="ltr">
+    <Field dir="ltr" className="max-w-60">
       <ButtonGroup className="rounded-full!">
         <Button variant="outline" className="bg-content-primary">
           <SearchIcon />

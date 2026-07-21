@@ -19,7 +19,7 @@ function LayoutHeader() {
     <div>
       <header className="bg-background py-4">
         <Container>
-          <div className="flex gap-10 items-center">
+          <div className="flex gap-10 items-center justify-between">
             <Logo />
             <LayoutNavigationMenu />
             <LayoutSearch />
