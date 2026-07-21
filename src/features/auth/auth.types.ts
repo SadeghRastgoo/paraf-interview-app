@@ -13,7 +13,3 @@ export interface LoginResponse {
 
 export type UserProfile = z.infer<typeof userProfileSchema>;
 
-export interface ApiResponse<T> {
-  result: T;
-  success: boolean;
-}

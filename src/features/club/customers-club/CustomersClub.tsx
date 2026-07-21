@@ -1,3 +1,5 @@
+"use client";
+
 import { Badge } from "@/shared/components/badge";
 import { Button } from "@/shared/components/button";
 import { Container } from "@/shared/components/container";
@@ -19,8 +21,22 @@ import {
 import Image from "next/image";
 import { LevelCard } from "./LevelCard";
 import { CoinsCard } from "./CoinsCard";
+import { getAllUserVitrin } from "./services/customers-club.service";
+import { useEffect } from "react";
 
 function CustomersClub() {
+  const fn = async () => {
+    try {
+      await getAllUserVitrin();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fn();
+  }, []);
+
   return (
     <Container>
       <header className="flex justify-between">

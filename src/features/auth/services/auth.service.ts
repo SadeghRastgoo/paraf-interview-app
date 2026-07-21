@@ -1,11 +1,11 @@
 import { apiClient } from "@/lib/api/client";
 import type {
-  ApiResponse,
   LoginCredentials,
   LoginResponse,
   UserProfile,
 } from "../auth.types";
 import { userProfileSchema } from "../schemas/user.schema";
+import type { ApiResponse } from "@/shared/types";
 
 export async function login(
   credentials: LoginCredentials,
