@@ -160,13 +160,13 @@ function CustomersClub() {
           </Tabs>
         </div>
 
-        <div className="flex items-center gap-3 pl-8 pr-20 py-1 w-max bg-linear-to-r from-transparent via-background/70 to-transparent">
+        <div className="items-center gap-3 pl-8 pr-20 py-1 w-max hidden lg:flex bg-linear-to-r from-transparent via-background/70 to-transparent">
           <Button variant={"link"}>قوانین و مقررات</Button>
           <Button variant={"link"}>سوالات متداول شما</Button>
         </div>
       </header>
 
-      <div className="bg-background rounded-2xl grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-14 mt-2 p-6">
+      <div className="bg-background rounded-2xl grid lg:grid-cols-[1fr_auto_.25fr_auto_1fr] items-center gap-6 mt-2 p-6">
         <div className="flex gap-6 items-center">
           <div className="shadow-lg p-2 rounded-2xl w-max">
             <Image
@@ -238,7 +238,7 @@ function CustomersClub() {
 
           <Separator className="bg-content-primary" />
 
-          <div className="flex gap-4 text-xs justify-between items-center">
+          <div className="flex gap-2 lg:gap-4 text-xs flex-col lg:flex-row justify-between items-center">
             <Badge variant={"secondary"}>
               ۳۰ روز اخیر
               <ChevronLeftIcon />

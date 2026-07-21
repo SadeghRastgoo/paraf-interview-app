@@ -8,11 +8,11 @@ import { CheckSquareIcon, ZapIcon } from "lucide-react";
 export function MembershipProgress() {
   return (
     <Container>
-      <div className="grid grid-cols-[1fr_260px] items-center max-w-6xl mx-auto gap-8">
+      <div className="grid lg:grid-cols-[1fr_260px] items-center max-w-6xl mx-auto gap-8">
         <div className="flex flex-col gap-4">
           <ProgressCard current={124} max={400} />
 
-          <div className="flex justify-center gap-3 bg-background w-max mx-auto px-6 py-1.5 rounded-xl">
+          <div className="flex justify-center gap-3 bg-background w-max mx-auto px-2 lg:px-6 py-1.5 rounded-xl">
             {levels.map((level, index) => (
               <LevelBadge
                 key={level.id}
@@ -24,7 +24,7 @@ export function MembershipProgress() {
           </div>
         </div>
 
-        <div className="rounded-full flex h-max flex-col gap-2 items-center justify-center border bg-requirement/80 backdrop-blur-md py-8 px-10 text-center border-r-background border-l-background">
+        <div className="rounded-full flex h-max flex-col gap-2 items-center justify-center border bg-requirement/10 backdrop-blur-md py-8 px-10 text-center border-r-background border-l-background">
           <div className="flex gap-2 items-center justify-center">
             <p className="text-sm">
               امتیاز لازم تا <strong>سطح نقره‌ای</strong>

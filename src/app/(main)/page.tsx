@@ -15,12 +15,11 @@ export default function Home() {
       <MembershipProgress />
       <Banner />
       <Container>
-        <div className="grid grid-cols-[2fr_1fr] gap-4">
+        <div className="grid lg:grid-cols-[2fr_1fr] gap-4">
           <RecentActivities />
           <ActivitiesChart />
         </div>
       </Container>
-
       <ClubBenefits />
     </div>
   );

@@ -7,7 +7,7 @@ interface Props {
 
 function ActivityCard() {
   return (
-    <div className="bg-content-body text-sm py-2 items-center px-3 rounded-full grid grid-cols-[50px_100px_1fr_100px_120px] gap-4">
+    <div className="bg-content-body text-sm py-2 items-center px-3 rounded-lg lg:rounded-full grid lg:grid-cols-[50px_100px_1fr_100px_120px] gap-4">
       <div className="bg-background rounded-full size-9 flex justify-center items-center [&>*]:stroke-green-700">
         <ZapIcon />
       </div>

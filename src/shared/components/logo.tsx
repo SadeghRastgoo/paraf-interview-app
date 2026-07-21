@@ -6,7 +6,7 @@ function Logo() {
     <Link href="/" className="min-w-max">
       <div className="flex gap-2 items-center">
         <Image src="/logo.svg" width={100} height={40} alt="" />
-        <div className="flex flex-col text-sm text-content-brand-bold">
+        <div className="flex-col text-sm hidden lg:flex text-content-brand-bold">
           <h1>بازار کالا و خدمات؛</h1>
           <span className="font-semibold">ساده، امن، بی‌مرز</span>
         </div>

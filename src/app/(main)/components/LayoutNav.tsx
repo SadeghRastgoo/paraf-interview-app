@@ -30,7 +30,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 function LayoutNavigationMenu() {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="hidden lg:block">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>

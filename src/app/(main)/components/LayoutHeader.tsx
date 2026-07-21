@@ -30,11 +30,11 @@ function LayoutHeader() {
 
       <div className="bg-content-body py-2">
         <Container>
-          <div className="flex items-center justify-between gap-10">
+          <div className="flex items-center flex-col lg:flex-row justify-between gap-4 lg:gap-10">
             <div className="flex items-center gap-3">
               <Button variant={"ghost"}>
                 <ArrowRightIcon />
-                برگشت
+                <span className="hidden lg:block">برگشت</span>
               </Button>
 
               <Breadcrumb>

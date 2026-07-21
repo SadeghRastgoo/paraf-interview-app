@@ -9,7 +9,7 @@ import {
 
 function LayoutActions() {
   return (
-    <div className="flex gap-4 items-center">
+    <div className="flex gap-4 items-center hidden lg:block">
       <Button variant={"ghost"} className="text-content-tertiary-inverse">
         فارسی / IRT
         <LanguagesIcon />

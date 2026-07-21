@@ -10,7 +10,7 @@ function ProgressCard({ current, max }: Props) {
   const percentage = (current / max) * 100;
 
   return (
-    <div className="relative flex-1 rounded-3xl border bg-requirement/80 backdrop-blur-md p-8">
+    <div className="relative flex-1 rounded-3xl border bg-requirement/10 backdrop-blur-md p-8">
       <div className="mb-10 flex justify-between">
         <div className="text-center">
           🏆

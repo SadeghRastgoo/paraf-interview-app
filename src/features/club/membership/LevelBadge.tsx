@@ -14,7 +14,7 @@ export function LevelBadge({ icon, title, isFinalLevel }: Props) {
       {icon}
 
       {!isFinalLevel && (
-        <ArrowLeftIcon className="stroke-content-primary mx-4" />
+        <ArrowLeftIcon className="stroke-content-primary mx-4 hidden lg:block" />
       )}
     </div>
   );
