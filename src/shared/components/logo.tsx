@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Logo() {
   return (
-    <Link href="/">
+    <Link href="/" className="min-w-max">
       <div className="flex gap-2 items-center">
         <Image src="/logo.svg" width={100} height={40} alt="" />
         <div className="flex flex-col text-sm text-content-brand-bold">

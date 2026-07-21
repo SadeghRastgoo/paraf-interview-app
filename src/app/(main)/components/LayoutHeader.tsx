@@ -20,9 +20,7 @@ function LayoutHeader() {
       <header className="bg-background py-4">
         <Container>
           <div className="flex gap-10 items-center">
-            <div className="w-52">
-              <Logo />
-            </div>
+            <Logo />
             <LayoutNavigationMenu />
             <LayoutSearch />
             <LayoutActions />
