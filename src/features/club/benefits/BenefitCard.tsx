@@ -40,7 +40,7 @@ function BenefitCard({
           alt={title}
           width={100}
           height={100}
-          className="mb-8 transition-all duration-500 group-hover:rotate-[8deg] group-hover:scale-110"
+          className="mb-8 transition-all duration-500 group-hover:grayscale group-hover:-scale-x-100"
         />
 
         <h5 className="text-2xl font-bold transition-colors duration-300 group-hover:text-negative">
