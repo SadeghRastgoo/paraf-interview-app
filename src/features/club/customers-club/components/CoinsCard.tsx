@@ -8,7 +8,15 @@ import { CoinsIcon, InfoIcon, ZapIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-function CoinsCard() {
+type CoinsCardProps = {
+  coins?: number | null;
+};
+
+function CoinsCard({ coins }: CoinsCardProps) {
+  const coinCount = Number(coins ?? 0);
+  const formattedCoins = coinCount.toLocaleString("fa-IR");
+  const equivalentToman = (coinCount * 100).toLocaleString("fa-IR");
+
   return (
     <div className="grid bg-notice/10 grid-cols-[auto_1fr_50px] gap-2 shadow-lg rounded-3xl p-2 py-3">
       <div className="flex items-end">
@@ -30,13 +38,13 @@ function CoinsCard() {
 
       <div className="text-sm flex flex-col justify-between py-0.5">
         <div className="flex gap-1">
-          <span className="font-semibold">۲٬۰۹۷</span>
+          <span className="font-semibold">{formattedCoins}</span>
           <span className="text-content-secondary">سکه</span>
           <CoinsIcon className="size-5 stroke-content-tertiary-inverse" />
         </div>
 
         <p className="text-content-tertiary-inverse">
-          <strong>209٬700</strong> تومان
+          <strong>{equivalentToman}</strong> تومان
         </p>
       </div>
 

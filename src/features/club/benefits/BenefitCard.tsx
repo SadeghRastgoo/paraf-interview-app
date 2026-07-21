@@ -43,7 +43,7 @@ function BenefitCard({
           className="mb-8 transition-all duration-500 group-hover:grayscale group-hover:-scale-x-100"
         />
 
-        <h5 className="text-2xl font-bold transition-colors duration-300 group-hover:text-negative">
+        <h5 className="text-lg font-bold transition-colors duration-300 group-hover:text-negative">
           {title}
         </h5>
 
@@ -62,9 +62,7 @@ function BenefitCard({
           "
         >
           <div className="overflow-hidden">
-            <p className="mt-6 text-lg leading-9 text-slate-700">
-              {description}
-            </p>
+            <p className="mt-6 text-sm text-slate-700">{description}</p>
           </div>
         </div>
       </div>

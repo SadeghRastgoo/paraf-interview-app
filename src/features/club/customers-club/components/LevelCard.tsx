@@ -8,7 +8,13 @@ import { InfoIcon, ZapIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-function LevelCard() {
+type LevelCardProps = {
+  level?: number | null;
+};
+
+function LevelCard({ level }: LevelCardProps) {
+  const levelLabel = level != null ? `سطح ${level}` : "سطح برنزی";
+
   return (
     <div className="grid grid-cols-[50px_1fr_auto] gap-2 shadow-lg rounded-3xl p-2 py-3">
       <div>
@@ -16,10 +22,10 @@ function LevelCard() {
       </div>
 
       <div className="text-sm flex flex-col justify-between py-0.5">
-        <span className="font-semibold">سطح برنزی</span>
+        <span className="font-semibold">{levelLabel}</span>
 
         <div className="flex gap-1">
-          <span>124</span>
+          <span>{level != null ? level : 124}</span>
           <span className="text-content-tertiary-inverse">امتیاز</span>
           <ZapIcon className="size-5 stroke-content-tertiary-inverse" />
         </div>

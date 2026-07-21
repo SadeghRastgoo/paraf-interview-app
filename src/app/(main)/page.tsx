@@ -2,10 +2,10 @@ import { RecentActivities } from "@/features/club/activities/RecentActivities";
 import { ActivitiesChart } from "@/features/club/activities-chart/ActivitiesChart";
 import { Banner } from "@/features/club/banner/Banner";
 import { ClubBenefits } from "@/features/club/benefits/ClubBenefits";
-import { CustomersClub } from "@/features/club/customers-club/CustomersClub";
 import { WelcomeHero } from "@/features/club/hero/WelcomeHero";
 import { MembershipProgress } from "@/features/club/membership/MembershipProgress";
 import { Container } from "@/shared/components/container";
+import { CustomersClub } from "@/features/club/customers-club/components/CustomersClub";
 
 export default function Home() {
   return (

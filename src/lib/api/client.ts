@@ -18,8 +18,6 @@ export function setTokenGetter(getter: () => string | null) {
 apiClient.interceptors.request.use((config) => {
   const token = getAccessToken();
 
-  console.log({ config, token });
-
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }

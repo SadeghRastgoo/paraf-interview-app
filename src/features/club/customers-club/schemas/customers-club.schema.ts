@@ -40,7 +40,16 @@ export const userVitrinSchema = z.object({
   ]),
   typeGuild: z.unknown().nullable(),
   status: z.enum(["active", "inactive"]),
-  unionApprovalStatus: z.enum(["PENDING", "APPROVED", "REJECTED"]),
+  unionApprovalStatus: z
+    .enum(["PENDING", "APPROVED", "REJECTED"])
+    .or(z.string())
+    .transform((val) => {
+      // Transform to uppercase if it's a string
+      if (typeof val === "string") {
+        return val.toUpperCase() as "PENDING" | "APPROVED" | "REJECTED";
+      }
+      return val;
+    }),
   parafApprovalStatus: z.unknown().nullable(),
   categories: z.unknown().nullable(),
   groupCategories: z.unknown().nullable(),
@@ -53,8 +62,14 @@ export const userVitrinSchema = z.object({
   companyEmail: z.string().email().nullable(),
   aboutUs: z.string().nullable(),
   keywords: z.string().nullable(),
-  lat: z.number().nullable(),
-  long: z.number().nullable(),
+  lat: z
+    .union([z.number(), z.string()])
+    .nullable()
+    .transform((val) => (val !== null ? Number(val) : null)),
+  long: z
+    .union([z.number(), z.string()])
+    .nullable()
+    .transform((val) => (val !== null ? Number(val) : null)),
   logoId: z.number().nullable(),
   guildId: z.number().nullable(),
   guildName: z.string().nullable(),
@@ -74,7 +89,7 @@ export const userVitrinSchema = z.object({
   trademarkStatus: z.unknown().nullable(),
   isGoldenVerified: z.boolean(),
   scores: z.string(),
-  logo: z.unknown().nullable(),
+  logo: z.object({ link: z.string() }).nullable(),
   businessLicense: z.unknown().nullable(),
   guild: z.unknown().nullable(),
   user: z.object({
@@ -108,8 +123,30 @@ export const userVitrinSchema = z.object({
     ),
   }),
   cover: z.unknown().nullable(),
-  level: z.unknown().nullable(),
-  businessActivity: z.unknown().nullable(),
+  level: z
+    .union([z.number(), z.string()])
+    .nullable()
+    .transform((val) => (val !== null ? Number(val) : null)),
+  coins: z
+    .union([z.number(), z.string()])
+    .nullable()
+    .transform((val) => (val !== null ? Number(val) : 0)),
+  coinsReceived: z
+    .union([z.number(), z.string()])
+    .nullable()
+    .transform((val) => (val !== null ? Number(val) : 0)),
+  coinsEquivalent: z
+    .union([z.number(), z.string()])
+    .nullable()
+    .transform((val) => (val !== null ? Number(val) : 0)),
+  hasPendingMission: z.boolean().optional().default(false),
+  pendingMissionMessage: z.string().nullable().optional(),
+  missionLink: z.string().nullable().optional(),
+  businessActivity: z
+    .object({
+      name: z.string().nullable(),
+    })
+    .nullable(),
   categoriesRow: z.array(z.unknown()),
   citiesRow: z.array(
     z.object({

@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
         hostname: "www.loremfaces.net",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "wholesaler-core-develop.web.parafacc.ir",
+        port: "",
+      },
     ],
   },
 };
