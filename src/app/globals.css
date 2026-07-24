@@ -114,3 +114,34 @@
     @apply font-sans;
   }
 }
+
+@theme {
+  --animate-scale-up-down: scale-up-down 3s ease-in-out infinite;
+}
+
+@keyframes scale-up-down {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+}
+
+@theme {
+  --animate-jiggle: jiggle 2s ease-in-out infinite;
+}
+
+@keyframes jiggle {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-3deg) scale(1);
+  }
+  75% {
+    transform: rotate(3deg) scale(1);
+  }
+}

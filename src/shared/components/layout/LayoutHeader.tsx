@@ -56,7 +56,7 @@ function LayoutHeader() {
               </Breadcrumb>
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 justify-between w-full xl:justify-start">
               <Button variant="outline" className="text-xs">
                 <span className="text-content-tertiary-inverse">کیف پول:</span>
 
@@ -65,12 +65,12 @@ function LayoutHeader() {
 
               <Button
                 variant={"ghost"}
-                className="flex justify-center items-center"
+                className="hidden justify-center items-center xl:flex"
               >
                 <CircleQuestionMarkIcon className="stroke-content-tertiary-inverse size-5" />
               </Button>
 
-              <div className="bg-background flex items-center h-8 relative rounded-full w-52 shadow">
+              <div className="bg-background flex items-center h-8 relative rounded-full w-24 xl:w-52 shadow">
                 <div className="rounded-full size-9 absolute right-0 bg-background top-1/2 -translate-y-1/2 shadow flex justify-center items-center">
                   <Image
                     src="/cups/bronze-cup.png"
