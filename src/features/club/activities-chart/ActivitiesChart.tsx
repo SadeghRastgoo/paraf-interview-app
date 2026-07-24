@@ -2,7 +2,7 @@ import { Button } from "@/shared/components/ui/button";
 
 function ActivitiesChart() {
   return (
-    <div className="bg-background flex flex-col gap-4 p-7 rounded-2xl">
+    <div className="bg-background flex flex-col gap-4 p-4 lg:p-7 rounded-2xl">
       <header className="flex flex-col gap-4">
         <h3 className="font-semibold text-lg">نمودار فعالیت ها</h3>
       </header>

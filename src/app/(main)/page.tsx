@@ -1,4 +1,4 @@
-import { RecentActivities } from "@/features/club/activities/RecentActivities";
+import { RecentActivities } from "@/features/club/activities/components/RecentActivities";
 import { ActivitiesChart } from "@/features/club/activities-chart/ActivitiesChart";
 import { Banner } from "@/features/club/banner/Banner";
 import { ClubBenefits } from "@/features/club/benefits/ClubBenefits";

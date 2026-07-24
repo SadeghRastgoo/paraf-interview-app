@@ -11,7 +11,7 @@ function ClubBenefits() {
           </h4>
         </header>
 
-        <main className="grid grid-cols-2 lg:grid-cols-3 gap-3 mt-6 w-11/12 mx-auto">
+        <main className="grid grid-cols-1 lg:grid-cols-3 gap-3 mt-6 w-11/12 mx-auto">
           <BenefitCard
             title="جوایز ویژه"
             description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان."

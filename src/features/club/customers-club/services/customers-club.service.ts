@@ -1,8 +1,6 @@
 import { apiClient } from "@/lib/api/client";
 import {
   UserVitrinSchema,
-  userVitrinSchema,
-  userVitrinsSchema,
   UserVitrinsSchema,
 } from "../schemas/customers-club.schema";
 import type { ApiResponse } from "@/shared/types";

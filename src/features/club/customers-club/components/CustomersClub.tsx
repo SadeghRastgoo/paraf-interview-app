@@ -145,7 +145,7 @@ function CustomersClub() {
     <Container>
       <header className="flex justify-between">
         <div className="flex items-center gap-3 pl-20 py-1 w-max bg-linear-to-r from-transparent via-background/70 to-transparent">
-          <span className="text-xs whitespace-nowrap">
+          <span className="text-xs whitespace-nowrap hidden xl:inline">
             انتخاب باشگاه مشتریان:
           </span>
 
@@ -169,13 +169,15 @@ function CustomersClub() {
       <div className="bg-background rounded-2xl grid lg:grid-cols-[1fr_auto_.25fr_auto_1fr] items-center gap-6 mt-2 p-6">
         <div className="flex gap-6 items-center">
           <div className="shadow-lg p-2 rounded-2xl w-max">
-            <Image
-              src={logoUrl}
-              width={110}
-              height={110}
-              alt={userFullName || "User avatar"}
-              className="rounded-xl"
-            />
+            {logoUrl && (
+              <Image
+                src={logoUrl}
+                width={110}
+                height={110}
+                alt=""
+                className="rounded-xl size-24"
+              />
+            )}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -209,12 +211,10 @@ function CustomersClub() {
         <Separator orientation="vertical" className="bg-content-primary" />
 
         <div className="flex flex-col gap-2 items-center">
-          {hasPendingMission && (
-            <Badge className="bg-negative-subtle text-negative">
-              <InfoIcon />
-              {pendingMissionMessage}
-            </Badge>
-          )}
+          <Badge className="bg-negative-subtle text-negative">
+            <InfoIcon />
+            وقت کمی مونده، ماموریتت رو همین الان انجام بده.
+          </Badge>
 
           <Button
             variant={"default"}
@@ -231,7 +231,7 @@ function CustomersClub() {
         <Separator orientation="vertical" className="bg-content-primary" />
 
         <div className="flex flex-col gap-4">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid lg:grid-cols-1 xl:grid-cols-2 gap-3">
             <LevelCard level={120} />
             <CoinsCard coins={coins} />
           </div>
@@ -244,26 +244,33 @@ function CustomersClub() {
               <ChevronLeftIcon />
             </Badge>
 
-            <div className="flex text-content-secondary font-medium items-center gap-1">
+            <div className="flex text-content-secondary font-medium items-center xl:gap-1">
               <Image
                 src="/sale.png"
                 alt=""
                 width={50}
                 height={50}
-                className="size-8"
+                className="size-5 2xl:size-8"
               />
-              <p>سکه دریافتی از طرح تخفیف سکه‌ای:</p>
+              <p>
+                سکه
+                <span className="2xl:inline hidden">
+                  {" "}
+                  از طرح تخفیف سکه‌ای دریافتی
+                </span>
+                :
+              </p>
               <strong className="text-lg">{coinsReceived}</strong>
-              <span>سکه</span>
+              <span className="hidden 2xl:inline">سکه</span>
             </div>
 
-            <div className="flex text-content-secondary font-medium items-center gap-1">
+            <div className="flex text-content-secondary font-medium items-center 2xl:gap-1">
               <Image
                 src="/cups/bronze-cup.png"
                 alt=""
                 width={50}
                 height={50}
-                className="size-8"
+                className="size-5 2xl:size-8"
               />
               <p>معادل:</p>
               <strong className="text-lg text-black">{coinsEquivalent}</strong>

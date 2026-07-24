@@ -36,8 +36,8 @@ function LayoutHeader() {
 
       <div className="bg-content-body py-2">
         <Container>
-          <div className="flex items-center flex-col lg:flex-row justify-between gap-4 lg:gap-10">
-            <div className="flex items-center justify-between w-full xl:justify-start gap-3">
+          <div className="flex items-center flex-col sm:flex-row justify-between gap-4 sm:gap-10">
+            <div className="flex items-center justify-between w-full sm:justify-start gap-3">
               <Button variant={"ghost"}>
                 <ArrowRightIcon />
                 <span>برگشت</span>
@@ -56,7 +56,7 @@ function LayoutHeader() {
               </Breadcrumb>
             </div>
 
-            <div className="flex gap-2 justify-between w-full xl:justify-start">
+            <div className="flex gap-2 justify-between sm:w-max w-full sm:justify-start">
               <Button variant="outline" className="text-xs">
                 <span className="text-content-tertiary-inverse">کیف پول:</span>
 
