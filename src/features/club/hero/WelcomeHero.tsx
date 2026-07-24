@@ -1,4 +1,4 @@
-import { Container } from "@/shared/components/container";
+import { Container } from "@/shared/components/ui/container";
 import Image from "next/image";
 
 function WelcomeHero() {

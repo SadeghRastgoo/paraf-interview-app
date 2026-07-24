@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/features/auth/stores/auth.store";
-import { LayoutHeader } from "./components/LayoutHeader";
+import { LayoutHeader } from "../../shared/components/layout/LayoutHeader";
 
 export default function MainLayout({
   children,

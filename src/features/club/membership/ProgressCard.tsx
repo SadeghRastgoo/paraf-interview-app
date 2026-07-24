@@ -1,4 +1,4 @@
-import { Progress } from "@/shared/components/progress";
+import { Progress } from "@/shared/components/ui/progress";
 import { ZapIcon } from "lucide-react";
 
 type Props = {

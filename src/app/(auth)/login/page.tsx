@@ -1,5 +1,5 @@
 import { LoginForm } from "@/features/auth/components/LoginForm";
-import { Container } from "@/shared/components/container";
+import { Container } from "@/shared/components/ui/container";
 import Image from "next/image";
 
 export default function LoginPage() {

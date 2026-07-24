@@ -1,21 +1,16 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import { cn } from "@/lib/utils";
-import localFont from "next/font/local";
-import { TooltipProvider } from "@/shared/components/tooltip";
+import { TooltipProvider } from "@/shared/components/ui/tooltip";
 import Image from "next/image";
-import { DirectionProvider } from "@/shared/components/direction";
+import { DirectionProvider } from "@/shared/components/ui/direction";
 import { AuthProvider } from "@/shared/providers/AuthProvider";
-
-export const yekanBakh = localFont({
-  src: "./assets/fonts/YekanBakhFaNum-VF.woff2",
-  variable: "--font-yekan-bakh",
-  display: "swap",
-});
+import "./globals.css";
+import { yekanBakh } from "@/shared/fonts/YekanBakhFont";
 
 export const metadata: Metadata = {
-  title: "Paraf Club",
-  description: "Paraf customers club",
+  title: "Paraf Club | باشگاه مشتریان پاراف",
+  description:
+    "لورم ایپسوم ساز فارسی تنها ابزاری است که به طور همزمان از فارسی، عربی، انگلیسی و ترکی پشتیبانی می کند، خروجی آماده Tailwind و Bootstrap تولید می کند",
 };
 
 export default function RootLayout({
@@ -30,7 +25,7 @@ export default function RootLayout({
       className={cn("font-sans", yekanBakh.variable)}
     >
       <body
-        className={`${yekanBakh.variable} antialiased bg-linear-to-b from-brand-subtle to-informal-subtle pb-10 overflow-x-hidden`}
+        className={`${yekanBakh.variable} antialiased bg-linear-to-b from-brand-subtle min-h-screen to-informal-subtle pb-10 overflow-x-hidden`}
       >
         <AuthProvider>
           <DirectionProvider dir="rtl">

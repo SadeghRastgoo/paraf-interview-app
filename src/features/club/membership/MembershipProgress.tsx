@@ -1,8 +1,8 @@
 import { ProgressCard } from "./ProgressCard";
 import { LevelBadge } from "./LevelBadge";
 import { levels } from "./level-data";
-import { Button } from "@/shared/components/button";
-import { Container } from "@/shared/components/container";
+import { Button } from "@/shared/components/ui/button";
+import { Container } from "@/shared/components/ui/container";
 import { CheckSquareIcon, ZapIcon } from "lucide-react";
 
 export function MembershipProgress() {

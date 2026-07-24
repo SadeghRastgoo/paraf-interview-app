@@ -4,15 +4,15 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { createZodResolver } from "@/lib/form/create-zod-resolver";
 import { Loader2Icon, LogInIcon } from "lucide-react";
-import { Button } from "@/shared/components/button";
+import { Button } from "@/shared/components/ui/button";
 import {
   Field,
   FieldContent,
   FieldError,
   FieldGroup,
   FieldLabel,
-} from "@/shared/components/field";
-import { Input } from "@/shared/components/input";
+} from "@/shared/components/ui/field";
+import { Input } from "@/shared/components/ui/input";
 import {
   loginSchema,
   type LoginFormValues,

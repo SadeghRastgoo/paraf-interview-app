@@ -1,4 +1,4 @@
-import { Button } from "@/shared/components/button";
+import { Button } from "@/shared/components/ui/button";
 
 function ActivitiesChart() {
   return (

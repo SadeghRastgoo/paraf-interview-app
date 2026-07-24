@@ -1,9 +1,9 @@
-import { Container } from "@/shared/components/container";
-import { Logo } from "@/shared/components/logo";
+import { Container } from "@/shared/components/ui/container";
+import { Logo } from "@/shared/components/ui/logo";
 import { LayoutNavigationMenu } from "./LayoutNav";
 import { LayoutSearch } from "./LayoutSearch";
 import { LayoutActions } from "./LayoutActions";
-import { Button } from "@/shared/components/button";
+import { Button } from "@/shared/components/ui/button";
 import { ArrowRightIcon, CircleQuestionMarkIcon } from "lucide-react";
 import {
   Breadcrumb,
@@ -11,7 +11,7 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator,
-} from "@/shared/components/breadcrumb";
+} from "@/shared/components/ui/breadcrumb";
 import Image from "next/image";
 
 function LayoutHeader() {

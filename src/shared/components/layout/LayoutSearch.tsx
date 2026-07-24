@@ -1,7 +1,7 @@
-import { Button } from "@/shared/components/button";
-import { ButtonGroup } from "@/shared/components/button-group";
-import { Field, FieldLabel } from "@/shared/components/field";
-import { Input } from "@/shared/components/input";
+import { Button } from "@/shared/components/ui/button";
+import { ButtonGroup } from "@/shared/components/ui/button-group";
+import { Field } from "@/shared/components/ui/field";
+import { Input } from "@/shared/components/ui/input";
 import { SearchIcon } from "lucide-react";
 
 function LayoutSearch() {

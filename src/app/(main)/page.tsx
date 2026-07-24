@@ -4,7 +4,7 @@ import { Banner } from "@/features/club/banner/Banner";
 import { ClubBenefits } from "@/features/club/benefits/ClubBenefits";
 import { WelcomeHero } from "@/features/club/hero/WelcomeHero";
 import { MembershipProgress } from "@/features/club/membership/MembershipProgress";
-import { Container } from "@/shared/components/container";
+import { Container } from "@/shared/components/ui/container";
 import { CustomersClub } from "@/features/club/customers-club/components/CustomersClub";
 
 export default function Home() {

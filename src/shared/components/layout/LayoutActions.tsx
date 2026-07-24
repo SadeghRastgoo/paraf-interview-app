@@ -1,5 +1,5 @@
-import { Button } from "@/shared/components/button";
-import { Separator } from "@/shared/components/separator";
+import { Button } from "@/shared/components/ui/button";
+import { Separator } from "@/shared/components/ui/separator";
 import {
   BellRingIcon,
   LanguagesIcon,

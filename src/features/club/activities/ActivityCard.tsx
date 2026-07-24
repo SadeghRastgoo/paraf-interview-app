@@ -1,4 +1,4 @@
-import { Badge } from "@/shared/components/badge";
+import { Badge } from "@/shared/components/ui/badge";
 import { HistoryIcon, ZapIcon } from "lucide-react";
 
 interface Props {

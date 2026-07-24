@@ -1,10 +1,10 @@
 "use client";
 
-import { Badge } from "@/shared/components/badge";
-import { Button } from "@/shared/components/button";
-import { Container } from "@/shared/components/container";
-import { Separator } from "@/shared/components/separator";
-import { Tabs, TabsList, TabsTrigger } from "@/shared/components/tabs";
+import { Badge } from "@/shared/components/ui/badge";
+import { Button } from "@/shared/components/ui/button";
+import { Container } from "@/shared/components/ui/container";
+import { Separator } from "@/shared/components/ui/separator";
+import { Tabs, TabsList, TabsTrigger } from "@/shared/components/ui/tabs";
 import {
   CheckCircle2Icon,
   CheckSquareIcon,

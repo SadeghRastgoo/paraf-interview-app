@@ -1,5 +1,5 @@
-import { Button } from "@/shared/components/button";
-import { Tabs, TabsList, TabsTrigger } from "@/shared/components/tabs";
+import { Button } from "@/shared/components/ui/button";
+import { Tabs, TabsList, TabsTrigger } from "@/shared/components/ui/tabs";
 import { EyeIcon } from "lucide-react";
 import { ActivityCard } from "./ActivityCard";
 

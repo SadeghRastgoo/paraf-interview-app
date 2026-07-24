@@ -1,9 +1,9 @@
-import { Button } from "@/shared/components/button";
+import { Button } from "@/shared/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/shared/components/tooltip";
+} from "@/shared/components/ui/tooltip";
 import { CoinsIcon, InfoIcon, ZapIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
