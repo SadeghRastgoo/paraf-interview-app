@@ -9,6 +9,7 @@ export const recentActivitiesTypeEnum = z.enum([
 ]);
 
 export const recentActivitySchema = z.object({
+  id: z.string(),
   type: recentActivitiesTypeEnum,
   taskTitle: z.string(),
   taskDescription: z.string(),

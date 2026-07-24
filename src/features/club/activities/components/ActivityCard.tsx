@@ -68,13 +68,13 @@ function ActivityCard(activity: RecentActivitySchema) {
   return (
     <div
       className={cn(
-        "bg-content-body group border border-transparent from-content-body hover:bg-linear-to-l transition-all duration-700 text-sm py-2 items-center px-3 rounded-full grid grid-cols-[50px_100px_1fr_80px] lg:grid-cols-[50px_100px_1fr_100px_120px] gap-4 hover:px-5",
+        "bg-content-body group border border-transparent from-content-body hover:bg-linear-to-l transition-all duration-700 text-sm py-2 items-center px-3 rounded-full grid grid-cols-[50px_50px_1fr_80px] lg:grid-cols-[50px_100px_1fr_100px_120px] gap-4 hover:px-5",
         config.hoverBgColor,
       )}
     >
       <div
         className={cn(
-          "size-9 rounded-full flex items-center justify-center transition-all duration-700",
+          "size-9 rounded-full flex items-center justify-center transition-all duration-700 bg-white shadow",
           config.iconBgColor,
         )}
       >
@@ -89,12 +89,14 @@ function ActivityCard(activity: RecentActivitySchema) {
       >
         {activity.scoreAmount && (
           <div>
-            {activity.scoreAmount} {config.currency}
+            {activity.scoreAmount}+{" "}
+            <span className="hidden lg:inline">{config.currency}</span>
           </div>
         )}
         {activity.coinAmount && (
           <div>
-            {activity.coinAmount} {config.currency}
+            {activity.coinAmount}+{" "}
+            <span className="hidden lg:inline">{config.currency}</span>
           </div>
         )}
       </div>

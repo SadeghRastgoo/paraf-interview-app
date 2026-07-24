@@ -4,31 +4,22 @@ import { Button } from "@/shared/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/shared/components/ui/tabs";
 import { EyeIcon } from "lucide-react";
 import { ActivityCard } from "./ActivityCard";
-import { getRecentActivities } from "../services/activities.service";
-import { useEffect, useState } from "react";
+import { useRecentActivities } from "../hooks/useRecentActivities";
 
 function RecentActivities() {
-  const [data, setData] = useState([]);
-
-  const fetcher = async () => {
-    const activities = await getRecentActivities({
-      offset: 0,
-      size: 10,
-    });
-
-    setData(activities);
-  };
-
-  useEffect(() => {
-    fetcher();
-  }, []);
+  const { data } = useRecentActivities();
 
   return (
-    <div className="bg-background flex flex-col gap-8 lg:p-7 rounded-2xl">
+    <div className="bg-background flex flex-col gap-8 p-5 lg:p-7 rounded-2xl">
       <header className="flex flex-col gap-4">
-        <div className="flex flex-col lg:flex-row gap-2 items-start lg:items-center">
-          <h3 className="font-semibold text-lg">فعالیت های اخیر</h3>
-          <Tabs dir="rtl" defaultValue="all">
+        <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
+          <h3 className="font-semibold text-lg text-nowrap">فعالیت های اخیر</h3>
+
+          <Tabs
+            dir="rtl"
+            defaultValue="all"
+            className="w-[80vw] sm:w-full overflow-y-hidden overflow-x-scroll sm:overflow-x-visible"
+          >
             <TabsList>
               <TabsTrigger value="all">همه</TabsTrigger>
               <TabsTrigger value="points">امتیاز</TabsTrigger>
@@ -57,7 +48,7 @@ function RecentActivities() {
       </header>
 
       <main className="space-y-2">
-        {data.map((activity, index) => (
+        {data?.map((activity) => (
           <ActivityCard key={activity.id} {...activity} />
         ))}
       </main>

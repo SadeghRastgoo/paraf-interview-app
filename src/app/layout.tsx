@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
-import { TooltipProvider } from "@/shared/components/ui/tooltip";
-import Image from "next/image";
-import { DirectionProvider } from "@/shared/components/ui/direction";
-import { AuthProvider } from "@/shared/providers/AuthProvider";
 import "./globals.css";
 import { yekanBakh } from "@/shared/fonts/YekanBakhFont";
+import { GlobalProvider } from "@/shared/providers/GlobalProvider";
 
 export const metadata: Metadata = {
   title: "Paraf Club | باشگاه مشتریان پاراف",
@@ -30,13 +27,9 @@ export default function RootLayout({
       <body
         className={`${yekanBakh.variable} antialiased bg-linear-to-b from-brand-subtle min-h-screen to-informal-subtle overflow-x-hidden`}
       >
-        <AuthProvider>
-          <DirectionProvider dir="rtl">
-            <TooltipProvider>
-              <div className="relative z-10 overflow-x-hidden">{children}</div>
-            </TooltipProvider>
-          </DirectionProvider>
-        </AuthProvider>
+        <GlobalProvider>
+          <div className="relative z-10 overflow-x-hidden">{children}</div>
+        </GlobalProvider>
       </body>
     </html>
   );

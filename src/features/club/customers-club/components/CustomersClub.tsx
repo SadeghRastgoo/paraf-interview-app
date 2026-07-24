@@ -185,9 +185,8 @@ function CustomersClub() {
               <span className="text-lg font-semibold">
                 {userFullName || "کاربر"}
               </span>
-              {user.unionApprovalStatus === "APPROVED" && (
-                <CheckCircle2Icon className="stroke-informal" />
-              )}
+
+              <CheckCircle2Icon className="stroke-informal" />
             </div>
 
             <div className="space-x-1 text-xs text-content-tertiary-inverse">
