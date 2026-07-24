@@ -22,11 +22,10 @@ function BenefitCard({
         "transition-all duration-500 ease-out",
         "hover:border-violet-400",
         "hover:bg-radial hover:from-background hover:to-requirement/20",
-        "hover:shadow-[0_18px_45px_rgba(124,58,237,.18)]",
         className,
       )}
     >
-      <div className="flex flex-col items-center text-center transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:scale-[1.02] group-hover:[transform:perspective(1000px)_rotateX(4deg)]">
+      <div className="flex flex-col items-center text-center transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:scale-[1.02]">
         <Image
           src={icon}
           alt={title}
@@ -41,7 +40,7 @@ function BenefitCard({
 
         <div className="mt-2 grid transition-all duration-500 h-4 group-hover:h-30 overflow-hidden ease-in-out grid-rows-[1fr] group-hover:-translate-y-5">
           <div className="overflow-hidden">
-            <p className="text-xs text-slate-700">{description}</p>
+            <p className="text-xs text-slate-700 leading-5">{description}</p>
           </div>
         </div>
       </div>

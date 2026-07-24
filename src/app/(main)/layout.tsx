@@ -34,7 +34,7 @@ export default function MainLayout({
   return (
     <>
       <LayoutHeader />
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 pb-20">{children}</div>
 
       <Image
         src="/bg-pattern.png"
