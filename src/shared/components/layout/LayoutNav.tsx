@@ -12,70 +12,73 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/shared/components/ui/navigation-menu";
-
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "کالا های دسته بندی ۱",
-    href: "/products/products-1",
-    description:
-      "تولید کننده متن ساختگی لورم ایپسوم فارسی، انگلیسی و امکان ترکیب آن با کدهای HTML و CSS، ایجاد و ویرایش متن سفارشی، تولید رنگ گرادینت، ابزار انتخاب رنگ‌بندی, ...",
-  },
-  {
-    title: "کالا های دسته بندی ۲",
-    href: "/products/products-2",
-    description:
-      "تولید کننده متن ساختگی لورم ایپسوم فارسی، انگلیسی و امکان ترکیب آن با کدهای HTML و CSS، ایجاد و ویرایش متن سفارشی، تولید رنگ گرادینت، ابزار انتخاب رنگ‌بندی, ...",
-  },
-];
+import { LayoutActions } from "./LayoutActions";
+import { LayoutSearch } from "./LayoutSearch";
+import {
+  NavigationMenuProductsData,
+  NavigationMenuServicesData,
+} from "@/shared/data/NavigationMenuData";
 
 function LayoutNavigationMenu() {
   return (
-    <NavigationMenu className="hidden lg:block">
-      <NavigationMenuList>
-        <NavigationMenuItem className="hidden md:flex">
-          <NavigationMenuTrigger>کالا</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>خدمات</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="w-96">
-              <ListItem href="/services/s1" title="خدمت اول">
-                تولید کننده متن ساختگی لورم ایپسوم فارسی
-              </ListItem>
-              <ListItem href="/services/s2" title="خدمت دوم">
-                تولید کننده متن ساختگی لورم ایپسوم فارسی
-              </ListItem>
-              <ListItem href="/services/s3" title="خدمت سوم">
-                تولید کننده متن ساختگی لورم ایپسوم فارسی
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/docs">فروشندگان</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/docs">نمایندگی‌ها</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    <>
+      <NavigationMenu className="hidden xl:block">
+        <NavigationMenuList>
+          <NavigationMenuItem className="hidden md:flex">
+            <NavigationMenuTrigger>کالا</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                {NavigationMenuProductsData.map((component) => (
+                  <ListItem
+                    key={component.title}
+                    title={component.title}
+                    href={component.href}
+                  >
+                    {component.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>خدمات</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                {NavigationMenuServicesData.map((component) => (
+                  <ListItem
+                    key={component.title}
+                    href={component.href}
+                    title={component.title}
+                  >
+                    {component.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              asChild
+              className={navigationMenuTriggerStyle()}
+            >
+              <Link href="/docs">فروشندگان</Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              asChild
+              className={navigationMenuTriggerStyle()}
+            >
+              <Link href="/docs">نمایندگی‌ها</Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+
+      <LayoutSearch />
+
+      <LayoutActions />
+    </>
   );
 }
 

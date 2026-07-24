@@ -1,8 +1,6 @@
 import { Container } from "@/shared/components/ui/container";
 import { Logo } from "@/shared/components/ui/logo";
 import { LayoutNavigationMenu } from "./LayoutNav";
-import { LayoutSearch } from "./LayoutSearch";
-import { LayoutActions } from "./LayoutActions";
 import { Button } from "@/shared/components/ui/button";
 import { ArrowRightIcon, CircleQuestionMarkIcon } from "lucide-react";
 import {
@@ -13,6 +11,7 @@ import {
   BreadcrumbSeparator,
 } from "@/shared/components/ui/breadcrumb";
 import Image from "next/image";
+import { LayoutMobileNav } from "./LayoutMobileNav";
 
 function LayoutHeader() {
   return (
@@ -21,9 +20,16 @@ function LayoutHeader() {
         <Container>
           <div className="flex gap-10 items-center justify-between">
             <Logo />
-            <LayoutNavigationMenu />
-            <LayoutSearch />
-            <LayoutActions />
+
+            {/* Mobile navigation menu */}
+            <div className="xl:hidden">
+              <LayoutMobileNav />
+            </div>
+
+            {/* Desktop navigation menu */}
+            <div className="hidden xl:flex gap-10 items-center justify-between w-full">
+              <LayoutNavigationMenu />
+            </div>
           </div>
         </Container>
       </header>
@@ -31,10 +37,10 @@ function LayoutHeader() {
       <div className="bg-content-body py-2">
         <Container>
           <div className="flex items-center flex-col lg:flex-row justify-between gap-4 lg:gap-10">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-between w-full xl:justify-start gap-3">
               <Button variant={"ghost"}>
                 <ArrowRightIcon />
-                <span className="hidden lg:block">برگشت</span>
+                <span>برگشت</span>
               </Button>
 
               <Breadcrumb>
