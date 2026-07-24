@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/features/auth/stores/auth.store";
 import { LayoutHeader } from "../../shared/components/layout/LayoutHeader";
+import Image from "next/image";
 
 export default function MainLayout({
   children,
@@ -33,7 +34,15 @@ export default function MainLayout({
   return (
     <>
       <LayoutHeader />
-      {children}
+      <div className="relative z-10">{children}</div>
+
+      <Image
+        src="/bg-pattern.png"
+        width={1920}
+        height={1080}
+        alt=""
+        className="absolute top-0 object-cover right-0 left-0 w-full"
+      />
     </>
   );
 }

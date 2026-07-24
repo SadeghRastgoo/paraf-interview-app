@@ -3,7 +3,7 @@ import { BenefitCard } from "./BenefitCard";
 
 function ClubBenefits() {
   return (
-    <section>
+    <section className="mt-6">
       <Container>
         <header>
           <h4 className="font-semibold text-2xl">

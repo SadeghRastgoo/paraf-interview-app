@@ -24,7 +24,7 @@ function RecentActivities() {
   }, []);
 
   return (
-    <div className="bg-background flex flex-col gap-8 p-4 lg:p-7 rounded-2xl">
+    <div className="bg-background flex flex-col gap-8 lg:p-7 rounded-2xl">
       <header className="flex flex-col gap-4">
         <div className="flex flex-col lg:flex-row gap-2 items-start lg:items-center">
           <h3 className="font-semibold text-lg">فعالیت های اخیر</h3>

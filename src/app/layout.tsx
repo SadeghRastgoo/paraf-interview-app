@@ -24,21 +24,16 @@ export default function RootLayout({
       dir="rtl"
       className={cn("font-sans", yekanBakh.variable)}
     >
+      <head>
+        <link rel="icon" href="/favicon.svg" sizes="any" />
+      </head>
       <body
-        className={`${yekanBakh.variable} antialiased bg-linear-to-b from-brand-subtle min-h-screen to-informal-subtle pb-10 overflow-x-hidden`}
+        className={`${yekanBakh.variable} antialiased bg-linear-to-b from-brand-subtle min-h-screen to-informal-subtle overflow-x-hidden`}
       >
         <AuthProvider>
           <DirectionProvider dir="rtl">
             <TooltipProvider>
               <div className="relative z-10 overflow-x-hidden">{children}</div>
-
-              <Image
-                src="/bg-pattern.png"
-                width={1920}
-                height={1080}
-                alt=""
-                className="absolute top-0 object-cover right-0 left-0 w-full"
-              />
             </TooltipProvider>
           </DirectionProvider>
         </AuthProvider>

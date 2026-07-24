@@ -58,9 +58,8 @@ function LoginForm() {
               type="tel"
               inputMode="numeric"
               placeholder="989027927890"
+              dir="rtl"
               disabled={isLoading}
-              dir="ltr"
-              className="text-left placeholder:text-right"
               {...register("phone")}
             />
             <FieldError errors={[errors.phone]} />
@@ -75,8 +74,6 @@ function LoginForm() {
               type="password"
               placeholder="رمز عبور خود را وارد کنید"
               disabled={isLoading}
-              dir="ltr"
-              className="text-left placeholder:text-right"
               {...register("password")}
             />
             <FieldError errors={[errors.password]} />
