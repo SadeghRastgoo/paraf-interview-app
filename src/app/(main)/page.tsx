@@ -3,9 +3,9 @@ import { ActivitiesChart } from "@/features/club/activities-chart/ActivitiesChar
 import { Banner } from "@/features/club/banner/components/Banner";
 import { ClubBenefits } from "@/features/club/benefits/components/ClubBenefits";
 import { WelcomeHero } from "@/features/club/hero/components/WelcomeHero";
-import { MembershipProgress } from "@/features/club/membership/MembershipProgress";
 import { Container } from "@/shared/components/ui/container";
 import { CustomersClub } from "@/features/club/customers-club/components/CustomersClub";
+import { MembershipProgress } from "@/features/club/membership/components/MembershipProgress";
 
 export default function Home() {
   return (

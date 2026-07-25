@@ -1,0 +1,43 @@
+export const levels = [
+  {
+    id: 0,
+    title: "کاربر عادی",
+    icon: "/white-flag.png",
+    score: 0,
+    maxScore: 49,
+    iconClassName: "size-14",
+    isFlag: true,
+  },
+  {
+    id: 1,
+    title: "سطح برنزی",
+    icon: "/cups/bronze-cup.png",
+    score: 50,
+    maxScore: 399,
+    iconClassName: "size-8",
+  },
+  {
+    id: 2,
+    title: "سطح نقره‌ای",
+    icon: "/cups/silver-cup-2.png",
+    score: 400,
+    maxScore: 799,
+    iconClassName: "size-8",
+  },
+  {
+    id: 3,
+    title: "سطح طلایی",
+    icon: "/cups/golden-cup.png",
+    score: 800,
+    maxScore: 1199,
+    iconClassName: "size-8",
+  },
+  {
+    id: 4,
+    title: "سطح الماس",
+    icon: "/diamond.png",
+    score: 1200,
+    maxScore: Infinity,
+    iconClassName: "size-8",
+  },
+];
