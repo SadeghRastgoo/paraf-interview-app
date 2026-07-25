@@ -4,7 +4,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/shared/components/ui/tooltip";
-import { CoinsIcon, InfoIcon, ZapIcon } from "lucide-react";
+import { CoinsIcon, InfoIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 

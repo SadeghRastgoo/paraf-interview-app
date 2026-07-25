@@ -1,5 +1,5 @@
 import z from "zod/v4";
-import { userProfileSchema } from "./schemas/user.schema";
+import { userProfileSchema } from "../schemas/user.schema";
 
 export interface LoginCredentials {
   phone: string;
@@ -12,4 +12,3 @@ export interface LoginResponse {
 }
 
 export type UserProfile = z.infer<typeof userProfileSchema>;
-

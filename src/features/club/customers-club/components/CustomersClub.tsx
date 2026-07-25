@@ -1,28 +1,22 @@
 "use client";
 
-import { Badge } from "@/shared/components/ui/badge";
-import { Button } from "@/shared/components/ui/button";
-import { Container } from "@/shared/components/ui/container";
-import { Separator } from "@/shared/components/ui/separator";
-import { Tabs, TabsList, TabsTrigger } from "@/shared/components/ui/tabs";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import {
   CheckCircle2Icon,
   CheckSquareIcon,
   ChevronLeftIcon,
   InfoIcon,
 } from "lucide-react";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { LevelCard } from "./LevelCard";
+import { Badge } from "@/shared/components/ui/badge";
+import { Button } from "@/shared/components/ui/button";
+import { Container } from "@/shared/components/ui/container";
+import { Separator } from "@/shared/components/ui/separator";
+import { Tabs, TabsList, TabsTrigger } from "@/shared/components/ui/tabs";
 import { CoinsCard } from "./CoinsCard";
-import {
-  getAllUserVitrin,
-  getUserVitrinById,
-} from "../services/customers-club.service";
-import type {
-  UserVitrinSchema,
-  UserVitrinsSchema,
-} from "../schemas/customers-club.schema";
+import { LevelCard } from "./LevelCard";
+import { useUserVitrins } from "../hooks/useUserVitrins";
+import { useUserVitrin } from "../hooks/useUserVitrin";
 
 type LogoImage = {
   link: string;
@@ -38,81 +32,41 @@ function isLogoImage(value: unknown): value is LogoImage {
 }
 
 function CustomersClub() {
-  const [allUsersVitrin, setAllUsersVitrin] = useState<UserVitrinsSchema>([]);
-  const [currentUserVitrin, setCurrentUserVitrin] =
-    useState<UserVitrinSchema | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<string>("");
+  const { data: users = [], isLoading: isUsersLoading } = useUserVitrins();
 
-  const fetchUserDetail = async (userId: string | number) => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const userDetail = await getUserVitrinById(userId);
-      setCurrentUserVitrin(userDetail);
-    } catch (err) {
-      console.error("Error fetching user detail:", err);
-      setError("Failed to load user details");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [activeTab, setActiveTab] = useState("");
 
   useEffect(() => {
-    const loadUsers = async () => {
-      setLoading(true);
-      setError(null);
+    if (!activeTab && users.length > 0) {
+      setActiveTab(String(users[0].id));
+    }
+  }, [users, activeTab]);
 
-      try {
-        const allUsers = await getAllUserVitrin();
-        setAllUsersVitrin(allUsers);
+  const {
+    data: user,
+    isLoading: isUserLoading,
+    error,
+  } = useUserVitrin(activeTab);
 
-        const users = Array.isArray(allUsers) ? allUsers : [];
-        if (users.length > 0) {
-          const firstUserId = String(users[0].id);
-          setActiveTab(firstUserId);
-          await fetchUserDetail(users[0].id);
-        }
-      } catch (err) {
-        console.error("Error fetching all users:", err);
-        setError("Failed to load customer data");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadUsers();
-  }, []);
-
-  const handleTabChange = async (value: string) => {
-    setActiveTab(value);
-    await fetchUserDetail(value);
-  };
-
-  if (loading && !currentUserVitrin) {
+  if (isUsersLoading || (isUserLoading && !user)) {
     return (
       <Container>
-        <div className="flex justify-center items-center h-64">
+        <div className="flex h-64 items-center justify-center">
           <p>در حال بارگذاری...</p>
         </div>
       </Container>
     );
   }
 
-  if (error || !currentUserVitrin) {
+  if (error || !user) {
     return (
       <Container>
-        <div className="flex justify-center items-center h-64 text-negative">
-          <p>{error || "داده‌ای موجود نیست"}</p>
+        <div className="flex h-64 items-center justify-center text-negative">
+          <p>داده‌ای موجود نیست</p>
         </div>
       </Container>
     );
   }
-
-  const user = currentUserVitrin;
-  const users = allUsersVitrin;
 
   const userFullName = [user.user.firstName, user.user.lastName]
     .filter(Boolean)
@@ -131,12 +85,6 @@ function CustomersClub() {
     .filter(Boolean)
     .join(", ");
 
-  const hasPendingMission = user.hasPendingMission ?? false;
-  const pendingMissionMessage =
-    user.pendingMissionMessage ||
-    "وقت کمی مونده، ماموریتت رو همین الان انجام بده.";
-  const missionLink = user.missionLink || "/missions";
-
   const coins = Number(user.coins ?? 0);
   const coinsReceived = Number(user.coinsReceived ?? 0);
   const coinsEquivalent = Number(user.coinsEquivalent ?? 0);
@@ -144,40 +92,40 @@ function CustomersClub() {
   return (
     <Container>
       <header className="flex justify-between">
-        <div className="flex items-center gap-3 pl-20 py-1 w-max bg-linear-to-r from-transparent via-background/70 to-transparent">
-          <span className="text-xs whitespace-nowrap hidden xl:inline">
-            انتخاب باشگاه مشتریان:
-          </span>
+        <div className="w-max bg-linear-to-r from-transparent via-background/70 to-transparent py-1 pl-20">
+          <div className="flex items-center gap-3">
+            <span className="hidden whitespace-nowrap text-xs xl:inline">
+              انتخاب باشگاه مشتریان:
+            </span>
 
-          <Tabs value={activeTab} onValueChange={handleTabChange} dir="rtl">
-            <TabsList className="flex flex-wrap">
-              {users.map((userItem) => (
-                <TabsTrigger key={userItem.id} value={String(userItem.id)}>
-                  {userItem.companyName || "فروشگاه بدون نام"}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </Tabs>
+            <Tabs value={activeTab} onValueChange={setActiveTab} dir="rtl">
+              <TabsList className="flex flex-wrap">
+                {users.map((userItem) => (
+                  <TabsTrigger key={userItem.id} value={String(userItem.id)}>
+                    {userItem.companyName || "فروشگاه بدون نام"}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </Tabs>
+          </div>
         </div>
 
-        <div className="items-center gap-3 pl-8 pr-20 py-1 w-max hidden lg:flex bg-linear-to-r from-transparent via-background/70 to-transparent">
-          <Button variant={"link"}>قوانین و مقررات</Button>
-          <Button variant={"link"}>سوالات متداول شما</Button>
+        <div className="hidden w-max items-center gap-3 bg-linear-to-r from-transparent via-background/70 to-transparent py-1 pl-8 pr-20 lg:flex">
+          <Button variant="link">قوانین و مقررات</Button>
+          <Button variant="link">سوالات متداول شما</Button>
         </div>
       </header>
 
-      <div className="bg-background rounded-2xl grid lg:grid-cols-[1fr_auto_.25fr_auto_1fr] items-center gap-6 mt-2 p-6">
-        <div className="flex gap-6 items-center">
-          <div className="shadow-lg p-2 rounded-2xl w-max">
-            {logoUrl && (
-              <Image
-                src={logoUrl}
-                width={110}
-                height={110}
-                alt=""
-                className="rounded-xl size-24"
-              />
-            )}
+      <div className="mt-2 grid items-center gap-6 rounded-2xl bg-background p-6 lg:grid-cols-[1fr_auto_.25fr_auto_1fr]">
+        <div className="flex items-center gap-6">
+          <div className="w-max rounded-2xl p-2 shadow-lg">
+            <Image
+              src={logoUrl}
+              width={110}
+              height={110}
+              alt={user.companyName ?? ""}
+              className="size-24 rounded-xl"
+            />
           </div>
 
           <div className="flex flex-col gap-2">
@@ -193,15 +141,19 @@ function CustomersClub() {
               <span className="text-content-secondary">
                 {businessActivityName || "خدمات نامشخص"}
               </span>
+
               <span>/</span>
+
               <span>{location}</span>
             </div>
 
-            <Badge variant={"secondary"}>مغازه دار</Badge>
+            <Badge variant="secondary">مغازه دار</Badge>
 
-            <div className="flex gap-1 items-center text-xs">
-              <CheckSquareIcon className="stroke-content-tertiary-inverse size-5" />
+            <div className="flex items-center gap-1 text-xs">
+              <CheckSquareIcon className="size-5 stroke-content-tertiary-inverse" />
+
               <span className="text-content-secondary">ماموریت انجام‌شده</span>
+
               <span className="font-semibold">{user.scores || 0}</span>
             </div>
           </div>
@@ -209,19 +161,13 @@ function CustomersClub() {
 
         <Separator orientation="vertical" className="bg-content-primary" />
 
-        <div className="flex flex-col gap-2 items-center">
+        <div className="flex flex-col items-center gap-2">
           <Badge className="bg-negative-subtle text-negative">
             <InfoIcon />
             وقت کمی مونده، ماموریتت رو همین الان انجام بده.
           </Badge>
 
-          <Button
-            variant={"default"}
-            className="bg-brand"
-            onClick={() => {
-              window.location.href = missionLink;
-            }}
-          >
+          <Button className="bg-brand">
             مشاهده ماموریت
             <CheckSquareIcon />
           </Button>
@@ -230,20 +176,20 @@ function CustomersClub() {
         <Separator orientation="vertical" className="bg-content-primary" />
 
         <div className="flex flex-col gap-4">
-          <div className="grid lg:grid-cols-1 xl:grid-cols-2 gap-3">
+          <div className="grid gap-3 lg:grid-cols-1 xl:grid-cols-2">
             <LevelCard level={120} />
             <CoinsCard coins={coins} />
           </div>
 
           <Separator className="bg-content-primary" />
 
-          <div className="flex gap-2 lg:gap-4 text-xs flex-col lg:flex-row justify-between items-center">
-            <Badge variant={"secondary"}>
+          <div className="flex flex-col items-center justify-between gap-2 text-xs lg:flex-row lg:gap-4">
+            <Badge variant="secondary">
               ۳۰ روز اخیر
               <ChevronLeftIcon />
             </Badge>
 
-            <div className="flex text-content-secondary font-medium items-center xl:gap-1">
+            <div className="flex items-center font-medium text-content-secondary xl:gap-1">
               <Image
                 src="/sale.png"
                 alt=""
@@ -251,19 +197,22 @@ function CustomersClub() {
                 height={50}
                 className="size-5 2xl:size-8"
               />
+
               <p>
                 سکه
-                <span className="2xl:inline hidden">
+                <span className="hidden 2xl:inline">
                   {" "}
                   از طرح تخفیف سکه‌ای دریافتی
                 </span>
                 :
               </p>
+
               <strong className="text-lg">{coinsReceived}</strong>
+
               <span className="hidden 2xl:inline">سکه</span>
             </div>
 
-            <div className="flex text-content-secondary font-medium items-center 2xl:gap-1">
+            <div className="flex items-center font-medium text-content-secondary 2xl:gap-1">
               <Image
                 src="/cups/bronze-cup.png"
                 alt=""
@@ -271,8 +220,11 @@ function CustomersClub() {
                 height={50}
                 className="size-5 2xl:size-8"
               />
+
               <p>معادل:</p>
+
               <strong className="text-lg text-black">{coinsEquivalent}</strong>
+
               <span className="text-black">امتیاز</span>
             </div>
           </div>

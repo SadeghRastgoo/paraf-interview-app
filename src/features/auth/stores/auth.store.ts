@@ -3,7 +3,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { setTokenGetter } from "@/lib/api/client";
-import type { LoginCredentials, UserProfile } from "../auth.types";
+import type { LoginCredentials, UserProfile } from "../types/auth.types";
 import * as authService from "../services/auth.service";
 
 interface AuthState {

@@ -3,7 +3,7 @@ import type {
   LoginCredentials,
   LoginResponse,
   UserProfile,
-} from "../auth.types";
+} from "../types/auth.types";
 import { userProfileSchema } from "../schemas/user.schema";
 import type { ApiResponse } from "@/shared/types";
 

@@ -2,8 +2,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --color-content-brand-bold: hsla(198, 80%, 30%, 1);
   --color-content-secondary: hsla(198, 11%, 45%, 1);

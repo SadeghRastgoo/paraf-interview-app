@@ -1,4 +1,5 @@
 import { Button } from "@/shared/components/ui/button";
+import Image from "next/image";
 
 function ActivitiesChart() {
   return (
@@ -30,6 +31,14 @@ function ActivitiesChart() {
       <h5 className="font-medium">
         فعالیت شما نسبت به ماه گذشته 35% کاهش یافته‌.
       </h5>
+
+      <Image
+        src={"/chart.png"}
+        alt=""
+        className="w-full"
+        width={600}
+        height={600}
+      />
     </div>
   );
 }
