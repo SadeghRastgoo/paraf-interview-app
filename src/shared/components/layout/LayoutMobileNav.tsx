@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Separator } from "@/shared/components/ui/separator";
 import Link from "next/link";
 import {
@@ -26,7 +26,6 @@ import {
 } from "@/shared/components/ui/sheet";
 import { Button } from "@/shared/components/ui/button";
 import {
-  NavigationMenuData,
   NavigationMenuProductsData,
   NavigationMenuServicesData,
 } from "@/shared/data/NavigationMenuData";
@@ -45,10 +44,7 @@ export function LayoutMobileNav() {
         </Button>
       </SheetTrigger>
 
-      <SheetContent
-        side="right"
-        className="w-[300px] sm:w-[400px] px-4 overflow-y-auto"
-      >
+      <SheetContent side="right" className="w-75 sm:w-100 px-4 overflow-y-auto">
         <div className="mt-14 flex flex-col gap-4">
           {/* Mobile Navigation Items */}
           <div className="flex flex-col gap-2 w-full">

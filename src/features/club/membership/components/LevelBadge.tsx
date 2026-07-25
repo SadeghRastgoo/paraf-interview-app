@@ -2,7 +2,7 @@ import { ArrowLeftIcon } from "lucide-react";
 import Image from "next/image";
 
 type Props = {
-  icon: React.ReactNode;
+  icon: string;
   title: string;
   isFinalLevel?: boolean;
 };
