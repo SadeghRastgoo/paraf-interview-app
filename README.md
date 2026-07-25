@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Interview Task
+
+A frontend application built with **Next.js (App Router)**.
+
+## Tech Stack
+
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- Zustand
+- TanStack Query
+- Axios
+- Zod
+- shadcn/ui
+- Lucide React
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Create `.env.local`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+NEXT_PUBLIC_API_BASE_URL=https://wholesaler-core-v2.paraf.app/api/
+NEXT_PUBLIC_IMAGE_BASE_URL=https://wholesaler-core-develop.web.parafacc.ir/
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Start the development server
 
-## Learn More
+```bash
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+The application will be available at:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Test Credentials
 
-## Deploy on Vercel
+| Username       | Password   |
+| -------------- | ---------- |
+| `989027927890` | `p.123456` |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## AI Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+AI was used only as a development assistant in the following cases:
+
+- Generating the initial Zod schemas from API response models.
+- Writing and polishing this `README.md`.
+
+All application architecture, business logic, state management, API integration, and UI implementation were completed manually.
+
+## Notes
+
+- Due to the limited time allocated for the interview task, a few API endpoints have not been implemented.
+- A live version of the project has been deployed. However, it is currently not fully functional because the backend API does not allow requests from the deployed domain (CORS restriction).
+- A few UI details and minor visual refinements remain and would be completed with additional development time.
+
+## Available Scripts
+
+```bash
+pnpm dev      # Start development server
+pnpm build    # Build for production
+pnpm start    # Start production server
+pnpm lint     # Run ESLint
+```
+
+## Questions or Feedback
+
+If you have any questions, feedback, or would like clarification about any implementation or architectural decision, I'd be happy to discuss it.
+
+Thank you for taking the time to review my submission.
